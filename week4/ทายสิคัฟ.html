@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ทายสิครับสุดหล่อ</title>
+  <style>
+    body {
+     background-color: lightslategrey;
+   }
+
+    div {
+     width: 960px;          
+     margin-left: auto;
+     margin-right: auto;
+   }
+
+    #number {
+      width: fit-content;
+      background-color: lightgreen;
+      color: red;
+      font-size: 30px;
+      font-weight: bold;
+      padding: 10px;
+      border-radius: 9%;
+   }
+   .try {
+    font-size: 1.5em;
+  }
+ </style>
+</head>
+  <script>
+    let number = Math.floor(Math.random() * 10) + 1;
+    let guesses = [];
+    let answer; 
+    let count = 0;
+    do {
+      answer = +prompt('เรามีตัวเลข 1-100 ลองทายซิว่าเลขอะไร');
+      guesses.push(answer);
+      count++;
+      if(answer < number) {
+        alert('น้อยไป')
+      }
+      else if(answer > number) {
+        alert('มากไป')
+      }
+      else {
+        alert('ถูกแล้วนะคัฟสุดหล่อออออม๊วฟฟ')
+      }
+    } while(answer != number);
+  </script>
+<body>
+    <div>
+        <h1>เลขของเรา</h1>
+        <p id="number"></p>
+        <p class="try">คุณทายไป 0 ครั้ง</p>
+        <p class="try"></p>
+    </div>
+    <script>
+      document.getElementById('number').innerHTML = number; 
+      document.querySelectorAll('.try')[0].innerHTML = `คุณทายไป ${count} ครั้ง` ;
+      document.querySelectorAll('.try')[1].innerHTML = guesses;
+    </script>
+</body>
+</html>
+
